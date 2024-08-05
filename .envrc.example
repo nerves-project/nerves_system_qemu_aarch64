@@ -1,0 +1,5 @@
+export BR2_CCACHE=y
+export BR2_CCACHE_DIR=$PWD/.nerves/ccache
+export BR2_CCACHE_INITIAL_SETUP=--max-size=10G
+export BR2_JLEVEL=`nproc`
+export BR2_PER_PACKAGE_DIRECTORIES=n
