@@ -1,4 +1,4 @@
-defmodule NervesSystemIotGateIMX8Plus.MixProject do
+defmodule NervesSystemQemuAarch64.MixProject do
   use Mix.Project
 
   @github_organization "underjord"
@@ -70,7 +70,7 @@ defmodule NervesSystemIotGateIMX8Plus.MixProject do
   end
 
   defp description do
-    "Nerves System - Compulab IoT Gate IMX8Plus"
+    "Nerves System - Qemu ARM64"
   end
 
   defp docs do
@@ -98,7 +98,6 @@ defmodule NervesSystemIotGateIMX8Plus.MixProject do
       "LICENSE",
       "README.md",
       "VERSION",
-      "assets/images",
       "fwup-ops.conf",
       "fwup.conf",
       "fwup_include",
@@ -107,8 +106,7 @@ defmodule NervesSystemIotGateIMX8Plus.MixProject do
       "nerves_defconfig",
       "post-build.sh",
       "post-createfs.sh",
-      "rootfs_overlay",
-      "uboot"
+      "rootfs_overlay"
     ]
   end
 

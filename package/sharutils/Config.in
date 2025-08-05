@@ -1,4 +1,0 @@
-config BR2_PACKAGE_SHARUTILS
-	bool "sharutils"
-	help
-	  Makes so-called shell archives out of many files.
