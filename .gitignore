@@ -20,7 +20,7 @@ erl_crash.dump
 *.ez
 
 # Ignore package tarball (built via "mix hex.build").
-nerves_system_iot_gate_imx8plus-*.tar
+nerves_system_qemu_aarch64-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
