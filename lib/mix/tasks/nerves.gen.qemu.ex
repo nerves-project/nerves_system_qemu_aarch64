@@ -27,7 +27,7 @@ defmodule Mix.Tasks.Nerves.Gen.Qemu do
       )
 
     {machine, cpu} = get_machine_and_cpu()
-    bootloader = Path.join(System.fetch_env!("NERVES_SDK_SYSROOT"), "little.elf")
+    bootloader = Path.join(System.fetch_env!("NERVES_SDK_IMAGES"), "little_loader.elf")
     cmd = template_command(machine, cpu, bootloader, disk_path)
     Mix.shell().info("Command:\n#{cmd}")
   end
