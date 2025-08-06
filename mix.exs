@@ -101,6 +101,7 @@ defmodule NervesSystemQemuAarch64.MixProject do
       "fwup-ops.conf",
       "fwup.conf",
       "fwup_include",
+      "lib",
       "linux",
       "mix.exs",
       "nerves_defconfig",
