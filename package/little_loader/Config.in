@@ -1,0 +1,4 @@
+config BR2_PACKAGE_LITTLE_LOADER
+	bool "little_loader"
+	help
+	  A minimal bootloader for Linux under Qemu following Nerves conventions.
