@@ -28,9 +28,11 @@ SPDX-License-Identifier = "CC-BY-4.0"
 [[annotations]]
 path = [
  "Config.in",
+ "external.mk",
  "nerves_defconfig",
  "post-build.sh",
- "post-createfs.sh"
+ "post-createfs.sh",
+ "package/**/*"
 ]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "The Buildroot developers <buildroot@buildroot.org>"
@@ -63,8 +65,10 @@ SPDX-License-Identifier = "CC0-1.0"
 path = [
  "rootfs_overlay/etc/boardid.config",
  "rootfs_overlay/etc/erlinit.config",
- "rootfs_overlay/etc/fw_env.config"
+ "rootfs_overlay/etc/fw_env.config",
+ "rootfs_overlay/etc/sysctl.conf"
 ]
+
 precedence = "aggregate"
 SPDX-FileCopyrightText = "None"
 SPDX-License-Identifier = "CC0-1.0"

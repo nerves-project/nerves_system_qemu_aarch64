@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Lars Wikman
+#
+# SPDX-License-Identifier: Apache-2.0
+
 defmodule Mix.Tasks.Nerves.Gen.Qemu do
   @moduledoc "Generate qemu command line for the current environment"
   @shortdoc "Generate qemu command line"
