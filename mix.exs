@@ -95,8 +95,9 @@ defmodule NervesSystemQemuAarch64.MixProject do
   defp package_files do
     [
       "CHANGELOG.md",
-      "LICENSE",
+      "LICENSES",
       "README.md",
+      "REUSE.toml",
       "VERSION",
       "fwup-ops.conf",
       "fwup.conf",

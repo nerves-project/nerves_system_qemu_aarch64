@@ -17,3 +17,14 @@ This is the Nerves base system for the [Qemu ARM system emulator](https://www.qe
 
 - [fwup](https://github.com/fwup-home/fwup)
 
+## Usage
+
+When using this for your Nerves system the details of the qemu command-line args can vary a bit based on your environment. To help with this we provide a mix task to generate a command:
+
+```
+mix nerves.gen.qemu
+```
+
+If it can determine that you likely can support KVM acceleration or you are on Apple Silicon and can use HVF acceleration it will provide those. Otherwise it falls back to full emulation.
+
+
