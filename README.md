@@ -11,7 +11,7 @@ This is the Nerves base system for the [Qemu ARM system emulator](https://www.qe
 | Linux kernel   | 6.12                                                        |
 | Ethernet       | Yes                                                         |
 | RTC            | Yes                                                         |
-| HW Watchdog    | No?                                                         |
+| HW Watchdog    | Software watchdog                                           |
 
 ## Prerequisites
 
