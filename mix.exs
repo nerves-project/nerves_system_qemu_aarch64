@@ -52,7 +52,8 @@ defmodule NervesSystemQemuAarch64.MixProject do
         {"TARGET_ARCH", "aarch64"},
         {"TARGET_CPU", "cortex_a53"},
         {"TARGET_OS", "linux"},
-        {"TARGET_ABI", "gnu"}
+        {"TARGET_ABI", "gnu"},
+        {"TARGET_GCC_FLAGS", "-mabi=lp64 -fstack-protector-strong -mcpu=cortex-a53 -fPIE -pie"}
       ],
       checksum: package_files()
     ]
