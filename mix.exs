@@ -62,7 +62,7 @@ defmodule NervesSystemQemuAarch64.MixProject do
   defp deps do
     [
       {:nerves, "~> 1.11", runtime: false},
-      {:nerves_system_br, "1.31.5", runtime: false},
+      {:nerves_system_br, "1.31.6", runtime: false},
       {:nerves_toolchain_aarch64_nerves_linux_gnu, "~> 13.2.0", runtime: false},
       {:nerves_system_linter, "~> 0.4", only: [:dev, :test], runtime: false},
       {:ex_doc, "~> 0.34", only: :docs, runtime: false}
