@@ -5,6 +5,10 @@
 This is an important security/bug fix that addresses Erlang CVEs for the ssh
 module (see Erlang release notes).
 
+* Changes
+  * Build `libnl` to avoid compile error with `vintage_net_wifi`. Note that it's
+    not possible to use WiFi, but `mix nerves.new` includes it by default for everyone.
+
 * Package updates
   * [nerves_system_br v1.31.7](https://github.com/nerves-project/nerves_system_br/releases/tag/v1.31.7). Also
     see [nerves_system_br v1.31.6](https://github.com/nerves-project/nerves_system_br/releases/tag/v1.31.6)
