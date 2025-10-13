@@ -10,13 +10,19 @@ defmodule Mix.Tasks.Nerves.Gen.Qemu do
 
   @impl Mix.Task
   def run(args) do
+    Mix.Project.build_path() |> dbg()
+
     fw_path =
       case args do
         [fw_path] ->
           fw_path
 
+        [] ->
+          [fw_path] = File.ls!("#{Mix.Project.build_path()}/nerves/images")
+          fw_path
+
         _ ->
-          Mix.shell().error("Command requires the firmware path as an input argument.")
+          Mix.shell().error("Command requires the firmware path as an input argument or 0 arguments it is taken based on your build_path.")
           System.halt(1)
       end
 
