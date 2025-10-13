@@ -10,8 +10,6 @@ defmodule Mix.Tasks.Nerves.Gen.Qemu do
 
   @impl Mix.Task
   def run(args) do
-    Mix.Project.build_path() |> dbg()
-
     fw_path =
       case args do
         [fw_path] ->
