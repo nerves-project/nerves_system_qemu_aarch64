@@ -51,7 +51,7 @@ defmodule Mix.Tasks.Nerves.Gen.Qemu do
       -smp 1 \
       -m 256M \
       -kernel #{bootloader} \
-      -netdev user,id=eth0 \
+      -netdev user,id=eth0,hostfwd=tcp:127.0.0.1:10022-:22 \
       -device virtio-net-device,netdev=eth0,mac=fe:db:ed:de:d0:01 \
       -global virtio-mmio.force-legacy=false \
       -drive if=none,file=#{disk},format=raw,id=vdisk \
