@@ -16,8 +16,7 @@ defmodule Mix.Tasks.Nerves.Gen.Qemu do
           fw_path
 
         [] ->
-          config = Mix.Project.config()
-          Path.expand("#{Mix.Project.build_path()}/nerves/images/#{config[:app]}.fw")
+          Nerves.Env.firmware_path()
 
         _ ->
           Mix.shell().error(
