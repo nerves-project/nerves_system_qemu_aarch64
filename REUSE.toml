@@ -4,9 +4,9 @@ version = 1
 path = [
  ".formatter.exs",
  ".github/CODEOWNERS",
- ".github/workflows/ci.yml",
  ".gitignore",
  "CHANGELOG.md",
+ "nerves_defconfig",
  "NOTICE",
  "REUSE.toml",
  "mix.exs",
@@ -26,14 +26,15 @@ SPDX-FileCopyrightText = "2025 Lars Wikman"
 SPDX-License-Identifier = "CC-BY-4.0"
 
 # Buildroot derived or related files
+# NOTE: packages here proactively have copyright assigned to the Buildroot
+# developers to avoid worrying up copyright assignment when upstreaming.
 [[annotations]]
 path = [
  "Config.in",
+ "package/**",
  "external.mk",
- "nerves_defconfig",
  "post-build.sh",
- "post-createfs.sh",
- "package/**/*"
+ "post-createfs.sh"
 ]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "The Buildroot developers <buildroot@buildroot.org>"
@@ -69,7 +70,6 @@ path = [
  "rootfs_overlay/etc/fw_env.config",
  "rootfs_overlay/etc/sysctl.conf"
 ]
-
 precedence = "aggregate"
 SPDX-FileCopyrightText = "None"
 SPDX-License-Identifier = "CC0-1.0"
