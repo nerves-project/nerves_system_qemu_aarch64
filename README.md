@@ -8,7 +8,7 @@ This is the Nerves base system for the [Qemu ARM system emulator](https://www.qe
 | -------------- | ----------------------------------------------------------- |
 | CPU            | Cortex-A53 or host CPU (64-bit)                             |
 | Storage        | virt                                                        |
-| Linux kernel   | 6.12                                                        |
+| Linux kernel   | 6.18                                                        |
 | Ethernet       | Yes                                                         |
 | RTC            | Yes                                                         |
 | HW Watchdog    | Software watchdog                                           |
