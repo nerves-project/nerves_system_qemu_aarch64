@@ -1,5 +1,20 @@
 # Changelog
 
+## Unreleased
+
+* Changes
+  * `mix nerves.gen.qemu` gained options for driving the VM from the outside for
+    resilience / fault-injection testing: `--qmp`, `--serial`, `--data-disk`,
+    `--ram`, `--smp` and `--accel`. A `virtio-balloon` device is now always
+    included and the primary drive uses a stable id so QMP `block_set_io_throttle`
+    can address it at runtime. Default output is unchanged.
+  * Added `examples/resilience_testing`, an example firmware with a QEMU-driven
+    fault-injection test suite (disk latency/errors/corruption, sudden power
+    loss, network latency). The guest is controlled over an Erlang `:peer` RPC
+    channel that rides the serial console via `peer_bridge`, so tests call into
+    the guest and get real terms back without depending on guest networking. See
+    `examples/resilience_testing/README.md`.
+
 ## v0.3.5
 
 This is a security and bug fix release.
