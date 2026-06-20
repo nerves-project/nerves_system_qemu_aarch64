@@ -24,24 +24,30 @@ console.
 
 ## Operating it
 
-```sh
-bin/build       # build the firmware (first run is slow: it compiles the system)
-bin/qemu-test   # boot QEMU and run the fault-injection suite (test/qemu/)
-```
-
-`bin/build` runs `MIX_TARGET=qemu_aarch64 mix firmware`. `bin/qemu-test` sources
-the Nerves build environment (`bin/nerves-env.sh`), locates the `.fw`, and runs
-`mix test --only qemu`.
-
-Other entry points:
+Build the firmware (the first run is slow — it compiles the system from source):
 
 ```sh
-bin/qemu-test test/qemu/disk_latency_test.exs   # run a single scenario
-bin/console                                      # host IEx with the harness loaded
-mix test                                         # host-only; the QEMU suite is excluded
+export MIX_TARGET=qemu_aarch64
+mix deps.get
+mix firmware
 ```
 
-`bin/console` drops you into an IEx where you can drive a VM by hand:
+Run the fault-injection suite (on the host; it boots QEMU and drives the guest).
+The harness finds the built `.fw` and the system's `little_loader.elf`
+automatically:
+
+```sh
+mix test --only qemu                              # the whole suite
+mix test --only qemu test/qemu/disk_latency_test.exs   # a single scenario
+```
+
+Plain `mix test` runs nothing — the QEMU suite is excluded by default.
+
+To poke at a VM by hand, start IEx with the harness loaded:
+
+```sh
+MIX_ENV=test iex -S mix
+```
 
 ```elixir
 alias ResilienceTesting.{VM, Faults}

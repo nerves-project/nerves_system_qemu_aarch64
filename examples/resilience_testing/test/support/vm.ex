@@ -66,18 +66,20 @@ defmodule ResilienceTesting.VM do
 
   Options:
     * `:fw_path` / `:sdk_images` — default to the `FW_PATH` / `NERVES_SDK_IMAGES`
-      environment variables (set by `bin/qemu-test`).
+      env vars, then to autodiscovery of the built `.fw` and system artifact.
     * `:ram` (default `"256M"`), `:smp` (default `1`).
     * `:data_disk` — `%{size: "256M", fault: :blkdebug | nil}` to attach `/dev/vdb`.
     * `:boot_timeout` (ms).
   """
   @spec boot(keyword()) :: t()
   def boot(opts \\ []) do
-    fw_path = opts[:fw_path] || System.get_env("FW_PATH") || raise_missing("FW_PATH", :fw_path)
+    fw_path =
+      opts[:fw_path] || System.get_env("FW_PATH") || resolve_fw_path() ||
+        raise "no firmware found under _build/. Build it with: MIX_TARGET=qemu_aarch64 mix firmware"
 
     sdk_images =
-      opts[:sdk_images] || System.get_env("NERVES_SDK_IMAGES") ||
-        raise_missing("NERVES_SDK_IMAGES", :sdk_images)
+      opts[:sdk_images] || System.get_env("NERVES_SDK_IMAGES") || resolve_sdk_images() ||
+        raise "little_loader.elf not found under ~/.nerves/artifacts. Build the firmware first."
 
     loader = Path.join(sdk_images, "little_loader.elf")
     File.exists?(loader) || raise "little_loader.elf not found at #{loader}"
@@ -465,7 +467,26 @@ defmodule ResilienceTesting.VM do
 
   defp token, do: :crypto.strong_rand_bytes(6) |> Base.encode16(case: :lower)
 
-  defp raise_missing(env, key) do
-    raise "missing #{env}; set the env var or pass #{inspect(key)} to VM.boot/1"
+  # The firmware built by `mix firmware` for the qemu_aarch64 target.
+  defp resolve_fw_path do
+    newest(Path.wildcard("_build/qemu_aarch64_*/nerves/images/*.fw"))
   end
+
+  # little_loader.elf lives in the built system artifact, not the .fw. Pick the
+  # most recently built one (a fresh `mix firmware` re-extracts the artifact).
+  defp resolve_sdk_images do
+    pattern =
+      Path.join([
+        System.user_home!(),
+        ".nerves/artifacts/nerves_system_qemu_aarch64-*/images/little_loader.elf"
+      ])
+
+    case newest(Path.wildcard(pattern)) do
+      nil -> nil
+      loader -> Path.dirname(loader)
+    end
+  end
+
+  defp newest([]), do: nil
+  defp newest(paths), do: Enum.max_by(paths, &File.stat!(&1, time: :posix).mtime)
 end
