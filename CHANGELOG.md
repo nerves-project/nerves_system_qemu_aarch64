@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.4.1
+
+This is a security and bug fix release.
+
+* Package updates
+  * [nerves_system_br 1.34.1](https://github.com/nerves-project/nerves_system_br/releases/tag/v1.34.1)
+
 ## v0.4.0
 
 This is a major update with security and feature updates throughout.
