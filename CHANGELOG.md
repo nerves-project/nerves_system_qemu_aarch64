@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.4.2
+
+This is a security and bug fix release.
+
+* Changes
+  * Allow Nerves 2 prereleases to be used
+
+* Package updates
+  * [nerves_system_br 1.34.4](https://github.com/nerves-project/nerves_system_br/releases/tag/v1.34.4)
+
 ## v0.4.1
 
 This is a security and bug fix release.
