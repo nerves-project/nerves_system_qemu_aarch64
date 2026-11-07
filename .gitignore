@@ -32,3 +32,4 @@ nerves_system_qemu_aarch64-*.tar
 
 # Project specific
 .envrc
+/checksum.exs

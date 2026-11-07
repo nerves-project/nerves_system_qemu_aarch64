@@ -55,7 +55,7 @@ defmodule NervesSystemQemuAarch64.MixProject do
         {"TARGET_ABI", "gnu"},
         {"TARGET_GCC_FLAGS", "-mabi=lp64 -fstack-protector-strong -mcpu=cortex-a53 -fPIE -pie"}
       ],
-      checksum: package_files()
+      checksum: source_finger_print_files()
     ]
   end
 
@@ -96,13 +96,8 @@ defmodule NervesSystemQemuAarch64.MixProject do
     ]
   end
 
-  defp package_files do
+  defp source_finger_print_files do
     [
-      "CHANGELOG.md",
-      "LICENSES",
-      "README.md",
-      "REUSE.toml",
-      "VERSION",
       "fwup-ops.conf",
       "fwup.conf",
       "fwup_include",
@@ -114,6 +109,17 @@ defmodule NervesSystemQemuAarch64.MixProject do
       "post-createfs.sh",
       "rootfs_overlay"
     ]
+  end
+
+  defp package_files do
+    [
+      "CHANGELOG.md",
+      "checksum.exs",
+      "LICENSES",
+      "README.md",
+      "REUSE.toml",
+      "VERSION"
+    ] ++ source_finger_print_files()
   end
 
   defp build_runner_opts() do
