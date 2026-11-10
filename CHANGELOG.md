@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.5.2
+
+* Changes
+  * Use Nerves 2 to create official system artifacts. Generated artifacts work
+    on both Nerves 1 and Nerves 2 like in the previous release.
+  * Publish SHA256 checksums (checksum.exs) to Hex.pm
+
 ## v0.5.1
 
 This is a security and bug fix release.
