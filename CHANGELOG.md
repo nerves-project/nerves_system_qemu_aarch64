@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.5.4
+
+This is an Erlang security and bug fix release.
+
+* Package updates
+  * [nerves_system_br 1.35.5](https://github.com/nerves-project/nerves_system_br/releases/tag/v1.35.5)
+
 ## v0.5.3
 
 This is a security and bug fix release.
