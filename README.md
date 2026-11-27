@@ -32,3 +32,17 @@ mix nerves.gen.qemu
 If it can determine that you likely can support KVM acceleration or you are on Apple Silicon and can use HVF acceleration it will provide those. Otherwise it falls back to full emulation.
 
 The guest Nerves device can be accessed via the console or by SSH via port 10022.
+
+### Igniter
+
+If your project uses [Igniter](https://igniter.hexdocs.pm), this system can be
+added to an existing Nerves project by running:
+
+```sh
+mix igniter.install nerves_system_qemu_aarch64
+```
+
+This adds `nerves_system_qemu_aarch64` to the `mix.exs` dependencies for the
+`qemu_aarch64` target and adds `:qemu_aarch64` to `@all_targets` if the project
+has it. Existing targets are kept. The installer doesn't have any options. It
+requires Nerves 2.0 or later.
